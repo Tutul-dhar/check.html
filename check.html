@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Simple Webpage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="brand-title">LOGIN</div>
+        <div class="inputs">
+          <div class="form__group">
+            <input type="email" placeholder="example@test.com" oninput="checkInput(this)" onblur="restorePlaceholder(this)" />
+            <label>Email</label>
+          </div>
+          <div class="form__group">
+            <input type="password" placeholder="Min 6 characters long" oninput="checkInput(this)" onblur="restorePlaceholder(this)" />
+            <label>Password</label>
+          </div>
+          <button type="submit">LOGIN</button>
+        </div>
+    </div>
+    
+    <script>
+        function checkInput(input) {
+            if (input.value.trim() !== '') {
+                input.setAttribute('data-placeholder', input.placeholder);
+                input.placeholder = '';
+            }
+        }
+
+        function restorePlaceholder(input) {
+            if (input.value.trim() === '') {
+                input.placeholder = input.getAttribute('data-placeholder');
+            }
+        }
+    </script>
+</body>
+</html>
+
